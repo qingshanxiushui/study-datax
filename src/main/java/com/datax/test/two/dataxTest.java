@@ -16,7 +16,7 @@ public class dataxTest {
         */
         String classPath ="D:\\DataX\\datax";
 
-        String jobFilePath="D:\\DataX\\datax\\job\\e9ae52c671934b56b52851bc9e290c73.json";
+        String jobFilePath="D:\\DataX\\datax\\job\\job.json";
 
         System.setProperty("datax.home", classPath);
         String[] dataXArgs = {"-job", jobFilePath, "-mode", "standalone", "-jobid", "-1"};

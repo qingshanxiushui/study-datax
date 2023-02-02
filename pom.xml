@@ -20,42 +20,56 @@
       <artifactId>datax-core</artifactId>
       <version>0.0.1-SNAPSHOT</version>
       <scope>system</scope>
-      <systemPath>${project.basedir}/src/lib/datax-core-0.0.1-SNAPSHOT.jar</systemPath>
+      <systemPath>${pom.basedir}/libs/datax-core-0.0.1-SNAPSHOT.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>com.alibaba.datax</groupId>
       <artifactId>datax-common</artifactId>
       <version>0.0.1-SNAPSHOT</version>
       <scope>system</scope>
-      <systemPath>${project.basedir}/src/lib/datax-common-0.0.1-SNAPSHOT.jar</systemPath>
+      <systemPath>${pom.basedir}/libs/datax-common-0.0.1-SNAPSHOT.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>com.alibaba.datax</groupId>
       <artifactId>datax-transformer</artifactId>
       <version>0.0.1-SNAPSHOT</version>
       <scope>system</scope>
-      <systemPath>${project.basedir}/src/lib/datax-transformer-0.0.1-SNAPSHOT.jar</systemPath>
+      <systemPath>${pom.basedir}/libs/datax-transformer-0.0.1-SNAPSHOT.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>com.alibaba.datax</groupId>
-      <artifactId>commons-cli</artifactId>
-      <version>1.2</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/src/lib/commons-cli-1.2.jar</systemPath>
-    </dependency>
-    <dependency>
-      <groupId>com.alibaba.datax</groupId>
-      <artifactId>mysqlreader</artifactId>
+      <artifactId>streamreader</artifactId>
       <version>0.0.1-SNAPSHOT</version>
       <scope>system</scope>
-      <systemPath>${project.basedir}/src/lib/mysqlreader-0.0.1-SNAPSHOT.jar</systemPath>
+      <systemPath>${pom.basedir}/libs/streamreader-0.0.1-SNAPSHOT.jar</systemPath>
     </dependency>
-
+    <dependency>
+      <groupId>com.alibaba.datax</groupId>
+      <artifactId>streamwriter</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <scope>system</scope>
+      <systemPath>${pom.basedir}/libs/streamwriter-0.0.1-SNAPSHOT.jar</systemPath>
+    </dependency>
+    <!--  slf4j 日志门面  -->
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
       <version>1.7.10</version>
     </dependency>
+    <!--  slf4j 内置的简单实现      -->
+ <!--   <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>1.7.10</version>
+    </dependency>-->
+    <!-- logback日志实现 -->
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.2.5</version>
+    </dependency>
+
+
     <dependency>
       <groupId>org.codehaus.groovy</groupId>
       <artifactId>groovy</artifactId>

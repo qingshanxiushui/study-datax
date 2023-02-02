@@ -14,6 +14,7 @@ public class dataxParamsTest {
         String dataXPath = dataXFile.getCanonicalPath();
 
         File jsonFile = new File("D:\\DataX\\datax\\job\\mysql2mysql_param.json");
+        //File jsonFile = new File("D:\\DataX\\datax\\job\\mysql2stream.json");
         String jsonPath = jsonFile.getCanonicalPath();
         System.out.println("------------------start----------------------");
         //name为文件json文件名
@@ -21,6 +22,7 @@ public class dataxParamsTest {
         String end_time = "2022-12-29";
         String command = "python " + dataXPath + " " + jsonPath + " -p \"-Dcreate_time='" + create_time +"' -Dend_time='" + end_time + "'\" ";
         //String command = "python " + dataXPath + " " + jsonPath + " -p \"-Dcreate_time='2022-12-28' -Dend_time='2022-12-29'\"";
+        //String command = "python " + dataXPath + " " + jsonPath;
         System.out.println(command);
         //通过调用cmd执行python执行
         Process pr = Runtime.getRuntime().exec(command);
