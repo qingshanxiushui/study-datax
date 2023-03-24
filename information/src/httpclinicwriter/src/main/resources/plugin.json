@@ -1,0 +1,7 @@
+{
+    "name": "httpclinicwriter",
+    "class": "com.alibaba.datax.plugin.writer.httpclinicwriter.HttpClinicWriter",
+    "description": "warn: The more you know about the data, the less problems you encounter.",
+    "developer": "neusoft"
+}
+

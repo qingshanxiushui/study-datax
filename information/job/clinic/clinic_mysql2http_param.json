@@ -1,0 +1,120 @@
+{
+    "job": {
+        "content": [
+            {
+                "reader": {
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "column": [],
+                        "connection": [
+                            {
+								"querySql":  ["
+	with t1 as (
+		select 
+			ttrd.TEST_CODE as record_id,
+			group_concat(ttrd.ITEM_NAME SEPARATOR ';') as item_name,
+			group_concat(ttrd.ITEM_ENG_NAME SEPARATOR ';') as item_abbr,
+			group_concat(ttrd.VALUE SEPARATOR ';') as item_result,
+			group_concat(ttrd.ITEM__UNIT SEPARATOR ';') as item_unit,
+			group_concat(ttrd.LIS_RESULT SEPARATOR ';') as item_hint
+		from th_test_record_detail ttrd 
+		group by TEST_CODE
+	), t2 as (
+		select 
+			ttr.TEST_CODE as record_id,
+			'检验记录' as record_type,
+			'da324141' as medical_id,
+			ttr.TREATMENT_CODE as visit_id,
+			ttr.PATIENT_ID as patient_id,
+			'13岁' as age,
+			'岁' as unit,
+			p.SEX_CODE as gender,
+			p.BIRTHDAY as birth_date,
+			ttr.OPER_TIME as record_time,
+			'2021-10-23 08-23-25' as admission_time,
+			'广医附一' as hospital,
+			p.dept_name as dept,
+			'心血管内科' as apply_dept,
+			ttr.ORDER_NAME as exam_name,
+			'血液标本' as exam_method,
+			ttr.SAMPLETYPE as sample_category,
+			'合格' as sample_status,
+			ttr.SAMPLE_ID as sample_id,
+			'2021-10-23 11:05:09' as sample_time,
+			'2021-10-23 11:10:09' as receive_time,
+			ttr.TESET_DATE as exam_time,
+			'2021-10-23 11:15:09' as report_time
+		from th_test_record ttr, vhis_register p
+		where p.CLINIC_CODE = ttr.TREATMENT_CODE
+		and ttr.OPER_TIME > ${start_time} 
+		and ttr.OPER_TIME < ${end_time}
+		and p.CARD_NO = ${card_no}
+		and p.CLINIC_CODE = ${clinic_code}
+	)
+	select 
+		t2.record_id,
+		t2.record_type,
+		t2.medical_id,
+		t2.visit_id,
+		t2.patient_id,
+		t2.age,
+		t2.unit,
+		t2.gender,
+		t2.birth_date,
+		t2.hospital,
+		t2.record_time,
+		t2.dept,
+		t2.apply_dept,
+		t2.exam_name,
+		t2.exam_method,
+		t2.sample_category,
+		t2.sample_status,
+		t2.sample_id,
+		t2.sample_time,
+		t2.receive_time,
+		t2.exam_time,
+		t2.report_time,
+		t1.item_name,
+		t1.item_abbr,
+		t1.item_result,
+		t1.item_unit,
+		t1.item_hint
+	from t1, t2
+	where t1.record_id = t2.record_id
+									"],
+								"jdbcUrl": ["jdbc:mysql://127.0.0.1:3306/clinic?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC"]
+                            }
+                        ],
+                        "password": "123456",
+                        "username": "root",
+                        "where": ""
+                    }
+                },
+                "writer": {
+                    "name": "httpclinicwriter",
+                    "parameter": {
+                        "connectTimeout": 20000,
+                        "encoding": "UTF-8",
+                        "host": "10.33.19.214",
+                        "path": "/medkb-api/recommend",
+                        "readTimeout": 20000,
+                        "token": "",
+						"buffer": 10,
+						"fieldDelimiter": ";",
+						"dataType":"检验记录",
+						"dbIpAddress": "10.33.19.214",
+						"dbPort": 5432,
+						"dbDatabaseName": "carerec",
+                        "dbUserName": "postgres",
+                        "dbPassWord": "CareRec@2021"
+                    }
+                }
+            }
+        ],
+        "setting": {
+            "speed": {
+                "channel": "2"
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "name": "httpreader",
+    "parameter": {
+        "host": "",
+        "port":"",
+        "path": "",
+        "requestMethod": "",
+        "urlParam": "",
+        "body": "",
+        "token": "",
+        "connectTimeout":"",
+        "readTimeout": "",
+        "encoding": "UTF-8"
+    }
+}

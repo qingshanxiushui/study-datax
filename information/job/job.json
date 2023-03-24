@@ -1,0 +1,62 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "byte":10485760
+            },
+            "errorLimit": {
+                "record": 1,
+                "percentage": 0.02
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "streamreader",
+                    "parameter": {
+                        "column" : [
+                            {
+                                "value": "DataXefghl",
+                                "type": "string"
+                            },
+                            {
+                                "value": 19890604,
+                                "type": "long"
+                            },
+                            {
+                                "value": "1989-06-04 00:00:00",
+                                "type": "date"
+                            },
+                            {
+                                "value": true,
+                                "type": "bool"
+                            },
+                            {
+                                "value": "abcdefgh",
+                                "type": "bytes"
+                            }
+                        ],
+                        "sliceRecordCount": 3
+                    }
+                },
+                "writer": {
+                    "name": "streamwriter",
+                    "parameter": {
+                        "print": true,
+                        "encoding": "UTF-8"
+                    }
+                },
+				"transformer": [
+                    {
+                        "name": "dx_substr",
+                        "parameter": 
+                            {
+                            "columnIndex":0,
+                            "paras":["3","5"]
+                            }  
+                    }
+                ]
+            }
+        ]
+    }
+}

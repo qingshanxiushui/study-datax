@@ -1,0 +1,43 @@
+{
+    "job": {
+        "content": [
+            {
+                "reader": {
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "column": [
+							"name",
+							"age"
+						],
+                        "connection": [
+                            {
+                                "jdbcUrl": ["jdbc:mysql://127.0.0.1:3306/test2?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC"],
+                                "table": ["user"]
+                            }
+                        ],
+                        "password": "123456",
+                        "username": "root",
+                        "where": ""
+                    }
+                },
+                "writer": {
+                    "name": "httpwriter",
+                    "parameter": {
+                        "connectTimeout": 20000,
+                        "encoding": "UTF-8",
+                        "host": "127.0.0.1",
+                        "path": "/hello/json",
+                        "port": 8088,
+                        "readTimeout": 20000,
+                        "token": ""
+                    }
+                }
+            }
+        ],
+        "setting": {
+            "speed": {
+                "channel": "1"
+            }
+        }
+    }
+}

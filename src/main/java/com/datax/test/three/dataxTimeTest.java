@@ -29,13 +29,14 @@ public class dataxTimeTest {
     }
     //批量执行datax
     public static void exeDatax(){
+        Process pr = null;
         try {
             System.out.println("------------------start----------------------");
             String[] str = getFileName(jsonPath);
             for (String name : str) {
                 String windowcmd = "python "+dataxPath+" "+jsonPath+"/"+name;
                 System.out.println(windowcmd);
-                Process pr = Runtime.getRuntime().exec(windowcmd);
+                pr = Runtime.getRuntime().exec(windowcmd);
                 BufferedReader in = new BufferedReader(new InputStreamReader(pr.getInputStream()));
                 String line = null;
                 while ((line = in.readLine()) != null) {
@@ -47,6 +48,10 @@ public class dataxTimeTest {
             System.out.println("----------------end------------------");
         } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+            if(pr!=null){
+                pr.destroy();
+            }
         }
     }
     //获取文件夹下所有 json 文件名

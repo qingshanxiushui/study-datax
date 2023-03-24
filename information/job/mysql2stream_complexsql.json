@@ -1,0 +1,36 @@
+{
+    "job": {
+        "content": [
+            {
+                "reader": {
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "column": [],
+                        "connection": [
+                            {
+								"querySql":  ["select * from user a join user_address b on a.name = b.name where sex = 'female' and create_time > '2022-12-28 00:00:00' and create_time < '2022-12-29 00:00:00' "],
+								"querySql":  ["select * from user_education c where c.name in (select b.name from user a join user_address b on a.name = b.name where sex = 'female' and create_time > '2022-12-28 00:00:00' and create_time < '2022-12-29 10:00:00')"],
+								"jdbcUrl": ["jdbc:mysql://127.0.0.1:3306/test2?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC"]
+                            }
+                        ],
+                        "password": "123456",
+                        "username": "root",
+                        "where": ""
+                    }
+                },
+                "writer": {
+                    "name": "streamwriter",
+					"parameter": {
+					"encoding": "UTF-8",
+					"print": true
+			 	}
+                }
+            }
+        ],
+        "setting": {
+            "speed": {
+                "channel": "1"
+            }
+        }
+    }
+}

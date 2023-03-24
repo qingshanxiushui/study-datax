@@ -1,0 +1,12 @@
+{
+    "name": "httpwriter",
+    "parameter": {
+        "host": "",
+        "port":"",
+        "path": "",
+        "token": "",
+        "connectTimeout":"",
+        "readTimeout": "",
+        "encoding": "UTF-8"
+    }
+}

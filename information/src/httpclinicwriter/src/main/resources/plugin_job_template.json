@@ -1,0 +1,20 @@
+{
+    "name": "httpclinicwriter",
+    "parameter": {
+        "host": "127.0.0.1",
+        "port":8080,
+        "path": "/hello/json",
+        "token": "",
+        "connectTimeout":20000,
+        "readTimeout": 20000,
+        "encoding": "UTF-8",
+        "buffer": 10,
+        "fieldDelimiter": ";",
+        "dataType": "clinic",
+        "dbIpAddress":"10.33.19.214",
+        "dbPort":5432,
+        "dbDatabaseName":"carerec",
+        "dbUserName":"postgres",
+        "dbPassWord":"CareRec@2021"
+    }
+}
